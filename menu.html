@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cafe Menu</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f1e1; /* Soft coffee background */
+            color: #4e4b3c; /* Dark brown text color */
+            animation: fadeIn 1s ease-in;
+        }
+
+        header {
+            background-color: #5c4033; /* Coffee brown */
+            color: white;
+            text-align: center;
+            padding: 20px;
+            animation: slideIn 1s ease-out;
+        }
+
+        .btn {
+            background-color: #d07f4e; /* Coffee beige */
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #9f6938; /* Darker beige on hover */
+        }
+
+        .menu-section {
+            padding: 20px;
+        }
+
+        .menu-section h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            color: #5c4033; /* Coffee brown */
+            margin-bottom: 20px;
+        }
+
+        .menu-category {
+            margin-bottom: 30px;
+        }
+
+        .menu-category h3 {
+            font-size: 2rem;
+            color: #5c4033;
+            text-align: center;
+            margin-bottom: 15px;
+        }
+
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 20px;
+            padding: 20px;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        .menu-item {
+            background-color: #fff8f1; /* Light cream */
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .menu-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .menu-item img {
+            width: 100%;
+            border-radius: 8px;
+            height: 180px;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .menu-item img:hover {
+            transform: scale(1.05);
+        }
+
+        .price {
+            color: #d07f4e; /* Coffee beige */
+            font-weight: bold;
+            margin: 10px 0;
+        }
+
+        .add-to-cart-btn {
+            background-color: #6c757d; /* Gray */
+            color: white;
+            padding: 8px 15px;
+            border-radius: 5px;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .add-to-cart-btn:hover {
+            background-color: #5a636c; /* Darker gray on hover */
+        }
+
+        .cart-section, .order-form-section {
+            background-color: #fff8f1; /* Light cream */
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin: 20px;
+        }
+
+        #total-price {
+            font-size: 20px;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+
+        #order-message {
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: bold;
+            color: #28a745;
+        }
+
+        #delivery-form-section {
+            background-color: #fff8f1; /* Light cream */
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin: 20px;
+            display: none;
+        }
+
+        #delivery-form-section input, #delivery-form-section textarea, #delivery-form-section select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateY(-50px);
+            }
+            to {
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Cafe Menu</h1>
+        <a href="index.html" class="btn">Back to Home</a>
+    </header>
+
+    <!-- Menu Section -->
+    <section class="menu-section">
+        <h2>Our Menu</h2>
+
+        <!-- Coffee Menu -->
+        <div class="menu-category">
+            <h3>Coffee</h3>
+            <div class="menu-grid">
+                <div class="menu-item">
+                    <img src="image/espresso.jpg" alt="Espresso">
+                    <p>Espresso</p>
+                    <p class="price">Rs.300</p>
+                    <button class="add-to-cart-btn" data-name="Espresso" data-price="300">Add to Cart</button>
+                </div>
+                <div class="menu-item">
+                    <img src="image/cappuccino.jpg" alt="Cappuccino">
+                    <p>Cappuccino</p>
+                    <p class="price">Rs.400</p>
+                    <button class="add-to-cart-btn" data-name="Cappuccino" data-price="400">Add to Cart</button>
+                </div>
+                <div class="menu-item">
+                    <img src="image/latte.jpg" alt="Latte">
+                    <p>Latte</p>
+                    <p class="price">Rs.350</p>
+                    <button class="add-to-cart-btn" data-name="Latte" data-price="350">Add to Cart</button>
+                </div>
+                <div class="menu-item">
+                    <img src="image/americano.jpg" alt="Americano">
+                    <p>Americano</p>
+                    <p class="price">Rs.250</p>
+                    <button class="add-to-cart-btn" data-name="Americano" data-price="250">Add to Cart</button>
+                </div>
+                <div class="menu-item">
+                    <img src="image/mocha.jpg" alt="Mocha">
+                    <p>Mocha</p>
+                    <p class="price">Rs.450</p>
+                    <button class="add-to-cart-btn" data-name="Mocha" data-price="450">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Pastries Menu -->
+        <div class="menu-category">
+            <h3>Pastries</h3>
+            <div class="menu-grid">
+                <div class="menu-item">
+                    <img src="image/croissant.jpg" alt="Croissant">
+                    <p>Croissant</p>
+                    <p class="price">Rs.150</p>
+                    <button class="add-to-cart-btn" data-name="Croissant" data-price="150">Add to Cart</button>
+                </div>
+                <div class="menu-item">
+                    <img src="image/muffin.jpg" alt="Muffin">
+                    <p>Muffin</p>
+                    <p class="price">Rs.200</p>
+                    <button class="add-to-cart-btn" data-name="Muffin" data-price="200">Add to Cart</button>
+                </div>
+                <div class="menu-item">
+                    <img src="image/doughnut.jpg" alt="Doughnut">
+                    <p>Doughnut</p>
+                    <p class="price">Rs.100</p>
+                    <button class="add-to-cart-btn" data-name="Doughnut" data-price="100">Add to Cart</button>
+                </div>
+                <div class="menu-item">
+                    <img src="image/pastry.jpg" alt="Pastry">
+                    <p>Pastry</p>
+                    <p class="price">Rs.180</p>
+                    <button class="add-to-cart-btn" data-name="Pastry" data-price="180">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Kids Menu -->
+        <div class="menu-category">
+            <h3>Kids Menu</h3>
+            <div class="menu-grid">
+                <div class="menu-item">
+                    <img src="image/chocolate-milk.jpg" alt="Chocolate Milk">
+                    <p>Chocolate Milk</p>
+                    <p class="price">Rs.100</p>
+                    <button class="add-to-cart-btn" data-name="Chocolate Milk" data-price="100">Add to Cart</button>
+                </div>
+                <div class="menu-item">
+                    <img src="image/smoothie.jpg" alt="Smoothie">
+                    <p>Smoothie</p>
+                    <p class="price">Rs.150</p>
+                    <button class="add-to-cart-btn" data-name="Smoothie" data-price="150">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- Cart Section -->
+    <section class="cart-section">
+        <h2>Your Cart</h2>
+        <div id="cart-items"></div>
+        <p id="total-price">Total: Rs.0</p>
+        <button id="checkout-btn" class="btn">Proceed to Checkout</button>
+        <div id="order-message"></div>
+    </section>
+
+    <!-- Delivery Form Section -->
+    <section id="delivery-form-section">
+        <h2>Delivery Details</h2>
+        <form id="delivery-form">
+            <input type="text" id="name" placeholder="Your Name" required>
+            <input type="text" id="address" placeholder="Your Address" required>
+            <input type="text" id="phone" placeholder="Your Phone Number" required>
+            <textarea id="notes" placeholder="Any Notes"></textarea>
+            <button type="submit" class="btn">Submit Order</button>
+        </form>
+    </section>
+
+    <script src="scripts.js"></script>
+</body>
+</html>

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bean Flow - Reservation</title>
+    <link rel="stylesheet" href="css/reservation.css">
+    <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+        .header {
+            background-color: #333;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        .btn {
+            background-color: #28a745;
+            color: white;
+            padding: 10px 15px;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        .btn:hover {
+            background-color: #218838;
+        }
+        .reservation-form {
+            margin: 20px;
+            padding: 20px;
+            background-color: white;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        #reservation-form {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 10px;
+        }
+        #reservation-form label {
+            font-weight: bold;
+        }
+        #reservation-form input, #reservation-form textarea {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        #reservation-form textarea {
+            resize: none; /* Prevent resizing */
+            height: 80px; /* Set a fixed height */
+        }
+        #reservation-form button {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <h1>Reservation at Bean Flow</h1>
+        <a href="index.html" class="btn">Back to Home</a>
+    </header>
+
+    <section class="reservation-form">
+        <h2>Reserve a Table</h2>
+        <form id="reservation-form">
+            <label for="name">Name:</label>
+            <input type="text" id="name" required>
+            <label for="email">Email:</label>
+            <input type="email" id="email" required>
+            <label for="contact">Contact Number:</label>
+            <input type="tel" id="contact" required>
+            <label for="date">Reservation Date:</label>
+            <input type="date" id="date" required>
+            <label for="time">Reservation Time:</label>
+            <input type="time" id="time" required>
+            <label for="guests">Number of Guests:</label>
+            <input type="number" id="guests" min="1" required>
+            <label for="special-requests">Special Requests:</label>
+            <textarea id="special-requests" placeholder="Any special requests"></textarea>
+            <button type="submit" class="btn">Submit Reservation</button>
+        </form>
+        <p id="reservation-message"></p>
+    </section>
+
+    <script>
+        const reservationForm = document.getElementById('reservation-form');
+        const reservationMessageElement = document.getElementById('reservation-message');
+
+        // Function to handle reservation form submission
+        function handleReservation(event) {
+            event.preventDefault();
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const contact = document.getElementById('contact').value;
+            const date = document.getElementById('date').value;
+            const time = document.getElementById('time').value;
+            const guests = document.getElementById('guests').value;
+            const specialRequests = document.getElementById('special-requests').value;
+
+            // Here, you can handle the reservation data, e.g., send it to a server
+            reservationMessageElement.textContent = `Thank you, ${name}! Your reservation for ${guests} guests on ${date} at ${time} has been received.`;
+            reservationForm.reset(); // Reset form fields after submission
+        }
+
+        // Add event listener for form submission
+        reservationForm.addEventListener('submit', handleReservation);
+    </script>
+</body>
+</html>
